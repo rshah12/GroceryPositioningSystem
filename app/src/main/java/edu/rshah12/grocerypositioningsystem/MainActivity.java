@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner category;
     CheckBox cb;
 
-    // Hi Richa
-    //Sup
-    // Anything
+    //test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
