@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cb;
 
     // Hi Richa
+    //Sup
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
