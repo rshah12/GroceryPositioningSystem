@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         db = openOrCreateDatabase("MyDatabase", Context.MODE_PRIVATE, null);
+        db.execSQL("DROP TABLE IF EXISTS List");
         db.execSQL("CREATE TABLE List (Item TEXT, Category TEXT)");
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -45,18 +46,19 @@ public class MainActivity extends AppCompatActivity {
 
         spinner.setAdapter(adapter);
 
-        sv = new ScrollView(this);
+        sv = (ScrollView) findViewById(R.id.sv);
         ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
         sv.addView(ll);
-        cb = new CheckBox(this);
     }
 
     public void makeGroceryList (View v) {
         String groceryItem = item.getText().toString();
         String categoryItem = category.getSelectedItem().toString();
         db.execSQL("INSERT INTO List VALUES ('" + groceryItem + "', '" + categoryItem + "')");
+        cb = new CheckBox(this);
         cb.setText(groceryItem);
         ll.addView(cb);
+
     }
 }
