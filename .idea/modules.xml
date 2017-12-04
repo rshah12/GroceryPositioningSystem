@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GroceryPositioningSystem.iml" filepath="$PROJECT_DIR$/GroceryPositioningSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\richa\Documents\GitHub\GroceryPositioningSystem\app\app.iml" filepath="C:\Users\richa\Documents\GitHub\GroceryPositioningSystem\app\app.iml" />
     </modules>
   </component>
 </project>
