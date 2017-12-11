@@ -94,4 +94,8 @@ public class MainActivity extends CheckBoxActivity {
         map.putExtra("dbData", dbData);
         startActivity(map);
     }
+
+    public void makeArrayList (View v){
+
+    }
 }

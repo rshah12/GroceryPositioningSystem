@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="categories_array">
-        <item>Vegetables</item>
-        <item>Dairy</item>
-        <item>Bakery</item>
-        <item>Meats</item>
-        <item>Deli</item>
-        <item>Fruits</item>
-        <item>Canned goods</item>
-        <item>Pharmacy</item>
-        <item>Frozen Goods</item>
-        <item>Alcoholic Beverages</item>
-        <item>Pizza</item>
-        <item>Household Items</item>
-        <item>Cleaning Items</item>
-        <item>Snacks</item>
-        <item>Soft Drinks and Mixers</item>
-        <item>Personal Care</item>
-        <item>Tea and Coffee</item>
-        <item>Juice and Cereal</item>
-        <item>Water</item>
-        <item>Baking Ingredients</item>
-        <item>Soup and Pasta</item>
-        <item>International</item>
-        <item>Condiments</item>
         <item>Books and Cards</item>
+        <item>Condiments</item>
+        <item>International</item>
+        <item>Baking Goods</item>
+        <item>Juice and Water</item>
+        <item>Tea and Coffee</item>
+        <item>Personal Care</item>
+        <item>Snacks</item>
+        <item>Cleaning Items</item>
+        <item>Household Items</item>
+        <item>Produce</item>
+        <item>Bakery</item>
+        <item>Deli</item>
+        <item>Dairy</item>
+        <item>Packaged Meats</item>
+        <item>Alcohol</item>
+        <item>Frozen Foods</item>
+        <item>Canned Goods</item>
+        <item>Breads</item>
+        <item>Flowers</item>
+        <item>Pizza</item>
     </string-array>
 
 </resources>
