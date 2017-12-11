@@ -61,4 +61,8 @@ public class MainActivity extends AppCompatActivity {
         ll.addView(cb);
 
     }
+
+    public void makeArrayList (View v){
+
+    }
 }
