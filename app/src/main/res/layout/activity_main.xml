@@ -67,12 +67,15 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/sv"
-        >
-    </ScrollView>
+    <include layout="@layout/activity_check_box" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:text="Map it!"
+        android:onClick="mapIt"/>
 
 
 </LinearLayout>
