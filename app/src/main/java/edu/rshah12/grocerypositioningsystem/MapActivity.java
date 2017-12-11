@@ -113,6 +113,7 @@ public class MapActivity extends CheckBoxActivity {
             CheckBox cb = new CheckBox(this);
             cb.setText(data[i]);
             ll.addView(cb);
+
         }
 
 
