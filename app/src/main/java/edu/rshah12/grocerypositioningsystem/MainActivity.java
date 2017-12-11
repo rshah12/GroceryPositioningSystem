@@ -90,12 +90,11 @@ public class MainActivity extends CheckBoxActivity {
 
     public void mapIt (View v) {
         String[] dbData = getData("SELECT Item FROM List");
+        String [] catData = getData("SELECT Category FROM List");
         Intent map = new Intent(this, MapActivity.class);
         map.putExtra("dbData", dbData);
+        map.putExtra("catData", catData);
         startActivity(map);
     }
 
-    public void makeArrayList (View v){
-
-    }
-}
+   }

@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:id="@+id/imv"
-        android:background="@drawable/floorplan"
         />
 
     <include layout="@layout/activity_check_box"

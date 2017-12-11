@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -28,7 +29,7 @@ public class MapActivity extends CheckBoxActivity {
     SQLiteDatabase db;
     Bitmap map = null;
     Bitmap og;
-    Drawable mapImage = null;
+    ImageView mapImage = null;
     Map coordMap = new HashMap<String, mapPoint>();
 
 
@@ -37,67 +38,69 @@ public class MapActivity extends CheckBoxActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-//        mapPoint BooksCards = new mapPoint(980, 272);
-//        coordMap.put("Books & Cards", BooksCards);
-//        mapPoint Condiments = new mapPoint(980, 272);
-//        coordMap.put("Condiments", Condiments);
-//        mapPoint International = new mapPoint(980, 272);
-//        coordMap.put("International", International);
-//        mapPoint Baking = new mapPoint(980, 272);
-//        coordMap.put("Baking Goods", Baking);
-//        mapPoint Beverages = new mapPoint(980, 272);
-//        coordMap.put("Juice & Water", Beverages);
-//        mapPoint TeaCoffee = new mapPoint(980, 272);
-//        coordMap.put("Tea & Coffee", TeaCoffee);
-//        mapPoint PersonalCare = new mapPoint(980, 272);
-//        coordMap.put("Personal Care", PersonalCare);
-//        mapPoint Snacks = new mapPoint(980, 272);
-//        coordMap.put("Snacks", Snacks);
-//        mapPoint Cleaning = new mapPoint(980, 272);
-//        coordMap.put("Cleaning Items", Cleaning);
-//        mapPoint Household = new mapPoint(980, 272);
-//        coordMap.put("Household Items", Household);
-//        mapPoint Produce = new mapPoint(980, 272);
-//        coordMap.put("Produce", Produce);
-//        mapPoint Bakery = new mapPoint(980, 272);
-//        coordMap.put("Bakery", Bakery);
-//        mapPoint Deli = new mapPoint(980, 272);
-//        coordMap.put("Deli", Deli);
-//        mapPoint Dairy = new mapPoint(980, 272);
-//        coordMap.put("Dairy", Dairy);
-//        mapPoint PackagedMeats = new mapPoint(980, 272);
-//        coordMap.put("Packaged Meats", PackagedMeats);
-//        mapPoint Alcohol = new mapPoint(980, 272);
-//        coordMap.put("Alcohol", Alcohol);
-//        mapPoint Frozen = new mapPoint(980, 272);
-//        coordMap.put("Frozen Foods", Frozen);
-//        mapPoint Canned = new mapPoint(980, 272);
-//        coordMap.put("Canned Goods", Canned);
-//        mapPoint Breads = new mapPoint(980, 272);
-//        coordMap.put("Breads", Breads);
-//        mapPoint Flowers = new mapPoint(980, 272);
-//        coordMap.put("Flowers", Flowers);
-//        mapPoint Pizza = new mapPoint(980, 272);
-//        coordMap.put("Pizza", Pizza);
+        mapPoint BooksCards = new mapPoint(3920, 1088);
+        coordMap.put("Books and Cards", BooksCards);
+        mapPoint Condiments = new mapPoint(3600, 1088);
+        coordMap.put("Condiments", Condiments);
+        mapPoint International = new mapPoint(3268, 1088);
+        coordMap.put("International", International);
+        mapPoint Baking = new mapPoint(2952, 1088);
+        coordMap.put("Baking Goods", Baking);
+        mapPoint Beverages = new mapPoint(2640, 1088);
+        coordMap.put("Juice and Water", Beverages);
+        mapPoint TeaCoffee = new mapPoint(2320, 1088);
+        coordMap.put("Tea and Coffee", TeaCoffee);
+        mapPoint PersonalCare = new mapPoint(1996, 1088);
+        coordMap.put("Personal Care", PersonalCare);
+        mapPoint Snacks = new mapPoint(1688, 1088);
+        coordMap.put("Snacks", Snacks);
+        mapPoint Cleaning = new mapPoint(1356, 1088);
+        coordMap.put("Cleaning Items", Cleaning);
+        mapPoint Household = new mapPoint(1032, 1088);
+        coordMap.put("Household Items", Household);
+        mapPoint Produce = new mapPoint(5048, 652);
+        coordMap.put("Produce", Produce);
+        mapPoint Bakery = new mapPoint(4892, 1592);
+        coordMap.put("Bakery", Bakery);
+        mapPoint Deli = new mapPoint(5764, 1920);
+        coordMap.put("Deli", Deli);
+        mapPoint Dairy = new mapPoint(92, 1540);
+        coordMap.put("Dairy", Dairy);
+        mapPoint PackagedMeats = new mapPoint(2444, 180);
+        coordMap.put("Packaged Meats", PackagedMeats);
+        mapPoint Alcohol = new mapPoint(568, 3496);
+        coordMap.put("Alcohol", Alcohol);
+        mapPoint Frozen = new mapPoint(556, 1088);
+        coordMap.put("Frozen Foods", Frozen);
+        mapPoint Canned = new mapPoint(2952, 1088);
+        coordMap.put("Canned Goods", Canned);
+        mapPoint Breads = new mapPoint(4212, 1036);
+        coordMap.put("Breads", Breads);
+        mapPoint Flowers = new mapPoint(5592, 2652);
+        coordMap.put("Flowers", Flowers);
+        mapPoint Pizza = new mapPoint(4476, 2268);
+        coordMap.put("Pizza", Pizza);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                og = BitmapFactory.decodeResource(getResources(),R.drawable.floorplan);
-                map = og.copy(Bitmap.Config.ARGB_8888, true);
-                int test = map.getPixel(980, 272);
-                int width = map.getWidth();
-                int height = map.getHeight();
-                Log.v("PixelTag", "width: " + Integer.toString(width) + "height: " + Integer.toString(height));
-                for (int i = 0; i < width; i++) {
-                    for (int j = 0; j < height; j++) {
-                        map.setPixel(i, j, Color.RED);
-                    }
-                }
-            }
-        }).start();
+        mapImage = (ImageView) findViewById(R.id.imv);
 
 
+        og = BitmapFactory.decodeResource(getResources(), R.drawable.floorplan);
+        map = og.copy(Bitmap.Config.ARGB_8888, true);
+        int test = map.getPixel(980, 272);
+        int width = map.getWidth();
+        int height = map.getHeight();
+        Log.v("dimensions", "Width: " + Integer.toString(width) + " Height: " + Integer.toString(height));
+
+        String [] catData = getIntent().getExtras().getStringArray("catData");
+
+        for (int i = 0; i < catData.length; i++) {
+            mapPoint temp = (mapPoint) coordMap.get(catData[i]);
+            int x = temp.getX();
+            int y =temp.getY();
+            colorIn(x, y);
+        }
+
+        mapImage.setImageBitmap(map);
 
         String[] data = getIntent().getExtras().getStringArray("dbData");
 
@@ -113,5 +116,13 @@ public class MapActivity extends CheckBoxActivity {
         }
 
 
+    }
+
+    public void colorIn (int x, int y) {
+        for (int i = x - 40; i < x + 40; i++) {
+            for (int j = y - 40; j < y + 40; j++) {
+                map.setPixel(i, j, Color.RED);
+            }
+        }
     }
 }
