@@ -3,11 +3,15 @@ package edu.rshah12.grocerypositioningsystem;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,7 +27,8 @@ public class MapActivity extends CheckBoxActivity {
     LinearLayout ll = null;
     SQLiteDatabase db;
     Bitmap map = null;
-    ImageView mapImage = null;
+    Bitmap og;
+    Drawable mapImage = null;
     Map coordMap = new HashMap<String, mapPoint>();
 
 
@@ -75,12 +80,24 @@ public class MapActivity extends CheckBoxActivity {
 //        mapPoint Pizza = new mapPoint(980, 272);
 //        coordMap.put("Pizza", Pizza);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                og = BitmapFactory.decodeResource(getResources(),R.drawable.floorplan);
+                map = og.copy(Bitmap.Config.ARGB_8888, true);
+                int test = map.getPixel(980, 272);
+                int width = map.getWidth();
+                int height = map.getHeight();
+                Log.v("PixelTag", "width: " + Integer.toString(width) + "height: " + Integer.toString(height));
+                for (int i = 0; i < width; i++) {
+                    for (int j = 0; j < height; j++) {
+                        map.setPixel(i, j, Color.RED);
+                    }
+                }
+            }
+        }).start();
 
-        mapImage = (ImageView)findViewById(R.drawable.floorplan);
 
-        map = ((BitmapDrawable)mapImage.getDrawable()).getBitmap();
-        int testPixel = map.getPixel(980, 272);
-        map.setPixel(980, 272, Color.RED);
 
         String[] data = getIntent().getExtras().getStringArray("dbData");
 
